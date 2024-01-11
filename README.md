@@ -11,3 +11,8 @@ To run this application:
 ```
 npm run dev
 ```
+
+# Webpage
+----------------------
+
+<img src="screenshot.png" alt="your-image-description" style="border: 2px solid  gray;">
