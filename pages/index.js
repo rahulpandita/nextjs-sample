@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, createContext, useContext } from 'react'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
@@ -15,6 +15,14 @@ function Home() {
   const increment = useCallback(() => {
     setCount((v) => v + 1)
   }, [setCount])
+
+  // Define a function resetState that sets the state of count to zero
+  const resetState = useCallback(() => {
+    setCount(0)
+  }, [setCount])
+
+  // Create a ClickContext using createContext from react
+  const ClickContext = createContext()
 
   useEffect(() => {
     const r = setInterval(() => {
@@ -45,7 +53,10 @@ function Home() {
       <hr className={styles.hr} />
       <div>
         <p>Component with state.</p>
-        <ClickCount />
+        {/* Wrap the ClickCount component in a ClickContext.Provider with a value of resetState */}
+        <ClickContext.Provider value={resetState}>
+          <ClickCount />
+        </ClickContext.Provider>
       </div>
       <hr className={styles.hr} />
       <div>
@@ -62,6 +73,9 @@ function Home() {
         >
           Throw an Error
         </Button>
+        {/* Add a Button component with the label "Reset State" and the onClick handler of resetState */}
+        {/* Place the Button component below the "Throw an Error" button */}
+        <Button onClick={resetState}>Reset State</Button>
       </div>
       <hr className={styles.hr} />
     </main>
