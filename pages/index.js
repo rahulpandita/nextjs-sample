@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
+import ResetButton from '../components/ResetButton'
 import styles from '../styles/home.module.css'
 
 function throwError() {
@@ -12,9 +13,11 @@ function throwError() {
 
 function Home() {
   const [count, setCount] = useState(0)
+  const [clickCount, setClickCount] = useState(0)
   const increment = useCallback(() => {
     setCount((v) => v + 1)
-  }, [setCount])
+    setClickCount((v) => v + 1)
+  }, [setCount, setClickCount])
 
   useEffect(() => {
     const r = setInterval(() => {
@@ -25,6 +28,11 @@ function Home() {
       clearInterval(r)
     }
   }, [increment])
+
+  const reset = useCallback(() => {
+    setCount(0)
+    setClickCount(0)
+  }, [setCount, setClickCount])
 
   return (
     <main className={styles.main}>
@@ -45,7 +53,7 @@ function Home() {
       <hr className={styles.hr} />
       <div>
         <p>Component with state.</p>
-        <ClickCount />
+        <ClickCount clickCount={clickCount} />
       </div>
       <hr className={styles.hr} />
       <div>
@@ -62,6 +70,7 @@ function Home() {
         >
           Throw an Error
         </Button>
+        <ResetButton onReset={reset} />
       </div>
       <hr className={styles.hr} />
     </main>
