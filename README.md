@@ -1,6 +1,6 @@
 # Next.js Fast Refresh Demo App
 
-A smaple app demonstrating the Fast Refresh feature of Next.js
+A sample app demonstrating the Fast Refresh feature of Next.js
 
 To run this application:
 
