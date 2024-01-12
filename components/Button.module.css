@@ -30,3 +30,17 @@ button.btn:hover {
 button.btn:focus {
   box-shadow: 0 0 0 2px rgba(0, 118, 255, 0.5);
 }
+
+/* New style for warning button */
+button.btn.warning {
+  background: #ffff00;
+  color: #000000;
+  border: 1px solid #000000;
+}
+button.btn.warning:hover {
+  background: #e6e600;
+  border-color: #333333;
+}
+button.btn.warning:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.5);
+}
