@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import Button from '../components/Button'
-import ClickCount from '../components/ClickCount'
+import ClickCount, { setCount } from '../components/ClickCount'
 import styles from '../styles/home.module.css'
 
 function throwError() {
@@ -25,6 +25,11 @@ function Home() {
       clearInterval(r)
     }
   }, [increment])
+
+  const reset = useCallback(() => {
+    setCount(0)
+    setCount(0)
+  }, [setCount])
 
   return (
     <main className={styles.main}>
@@ -64,6 +69,10 @@ function Home() {
         </Button>
       </div>
       <hr className={styles.hr} />
+      <div>
+        <p>The button below will reset the state of both counters.</p>
+        <Button onClick={reset}>Reset State</Button>
+      </div>
     </main>
   )
 }
