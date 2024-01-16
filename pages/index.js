@@ -26,6 +26,11 @@ function Home() {
     }
   }, [increment])
 
+  // Define a reset function that sets the state of count to zero
+  const reset = useCallback(() => {
+    setCount(0)
+  }, [setCount])
+
   return (
     <main className={styles.main}>
       <h1>Fast Refresh Demo</h1>
@@ -45,7 +50,8 @@ function Home() {
       <hr className={styles.hr} />
       <div>
         <p>Component with state.</p>
-        <ClickCount />
+        {/* Pass the reset function as a prop to the ClickCount component */}
+        <ClickCount reset={reset} />
       </div>
       <hr className={styles.hr} />
       <div>
@@ -62,6 +68,18 @@ function Home() {
         >
           Throw an Error
         </Button>
+      </div>
+      {/* Add a new section with a heading "Reset State" and a paragraph explaining the functionality of the button */}
+      <hr className={styles.hr} />
+      <div>
+        <h2>Reset State</h2>
+        <p>
+          The button below will reset the state of both the auto incrementing
+          value and the component with state to zero. This demonstrates how you
+          can control the state of your components with custom logic.
+        </p>
+        {/* Add a Button component with the label "Reset State" and the onClick handler as the reset function */}
+        <Button onClick={reset}>Reset State</Button>
       </div>
       <hr className={styles.hr} />
     </main>
