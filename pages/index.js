@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useRef, useImperativeHandle } from 'react'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
@@ -26,6 +26,15 @@ function Home() {
     }
   }, [increment])
 
+  // Create a ref variable called clickCountRef and assign it to the ClickCount component as a ref prop
+  const clickCountRef = useRef()
+
+  // Define a function called resetState that sets the count state to 0 and the clickCountRef.current state to 0
+  const resetState = useCallback(() => {
+    setCount(0)
+    clickCountRef.current.resetState()
+  }, [setCount, clickCountRef])
+
   return (
     <main className={styles.main}>
       <h1>Fast Refresh Demo</h1>
@@ -45,7 +54,7 @@ function Home() {
       <hr className={styles.hr} />
       <div>
         <p>Component with state.</p>
-        <ClickCount />
+        <ClickCount ref={clickCountRef} />
       </div>
       <hr className={styles.hr} />
       <div>
@@ -62,6 +71,13 @@ function Home() {
         >
           Throw an Error
         </Button>
+      </div>
+      <hr className={styles.hr} />
+      <div>
+        <p>
+          The button below will reset the state of the counter and the click count component.
+        </p>
+        <Button onClick={resetState}>Reset State</Button>
       </div>
       <hr className={styles.hr} />
     </main>
