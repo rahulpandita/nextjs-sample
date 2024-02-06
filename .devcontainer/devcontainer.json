@@ -5,7 +5,8 @@
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "npm install && npm run build",
-  "postCreateCommand": "npm run dev",
+  "postCreateCommand": "echo hello",
+  "postAttachCommand" : "npm run dev",
   "customizations": {
     "codespaces": {
       "openFiles": [
