@@ -1,9 +1,6 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install && npm run build",
-  "postStartCommand": "npm run dev",
-  "postAttachCommand" : "npm run dev",
+  "postAttachCommand" : "npm install && npm run dev",
   "customizations": {
     "codespaces": {
       "openFiles": [
