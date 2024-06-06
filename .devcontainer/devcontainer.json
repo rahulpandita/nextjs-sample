@@ -1,26 +1,7 @@
 {
-  "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "pages/index.js"
-      ]
-    }
-  },
-  "portsAttributes": {
-    "3000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
-    }
-  },
-  "forwardPorts": [3000],
-  "hostRequirements": {
-   "cpus": 16,
-   "memory": "32gb",
-   "storage": "32gb"
-}
   "tasks": {
     "build": "npm install",
     "test": "echo test",
-    "run": "npm run dev"
-}
+    "launch": "npm run dev"
+  }
 }
