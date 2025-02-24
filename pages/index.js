@@ -62,6 +62,14 @@ function Home() {
         >
           Throw an Error
         </Button>
+        <Button
+          onClick={(e) => {
+            setCount(0)
+          }}
+          className="resetBtn"
+        >
+          Reset
+        </Button>
       </div>
       <hr className={styles.hr} />
     </main>

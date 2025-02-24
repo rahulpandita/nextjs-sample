@@ -7,5 +7,14 @@ export default function ClickCount() {
     setCount((v) => v + 1)
   }, [setCount])
 
-  return <Button onClick={increment}>Clicks: {count}</Button>
+  const reset = useCallback(() => {
+    setCount(0)
+  }, [setCount])
+
+  return (
+    <div>
+      <Button onClick={increment}>Clicks: {count}</Button>
+      <Button onClick={reset} className="resetBtn">Reset</Button>
+    </div>
+  )
 }
