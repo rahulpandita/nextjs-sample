@@ -1,0 +1,8 @@
+{
+    "customizations": {
+        "codespaces": {
+          // Disable Oryx
+          "disableAutomaticConfiguration": true
+        }
+    }
+}

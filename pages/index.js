@@ -1,12 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
-import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
 
 function throwError() {
   console.log(
-    // The function body() is not defined
-    document.body()
+    document.body() // Error-prone function as an example
   )
 }
 
@@ -54,20 +52,15 @@ function Home() {
           let you know about the errors but it won't break the page or reset
           your state.
         </p>
-        <Button
-          onClick={(e) => {
+        <Button onClick={() => {
             setTimeout(() => document.parentNode(), 0)
             throwError()
-          }}
-        >
+          }}>
           Throw an Error
         </Button>
-        <Button
-          onClick={(e) => {
+        <Button onClick={() => {
             setCount(0)
-          }}
-          className="resetBtn"
-        >
+          }} className="resetBtn">
           Reset
         </Button>
       </div>
