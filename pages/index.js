@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
-import styles from '../styles/home.module.css'
 
 function throwError() {
   console.log(
@@ -27,29 +26,29 @@ function Home() {
   }, [increment])
 
   return (
-    <main className={styles.main}>
-      <h1>Fast Refresh Demo</h1>
-      <p>
+    <main className="p-5 pb-16 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">Fast Refresh Demo</h1>
+      <p className="mb-6 text-gray-600">
         Fast Refresh is a Next.js feature that gives you instantaneous feedback
         on edits made to your React components, without ever losing component
         state.
       </p>
-      <hr className={styles.hr} />
-      <div>
-        <p>
+      <hr className="border-none border-b border-gray-200 my-12" />
+      <div className="mb-8">
+        <p className="mb-2 text-gray-700">
           Auto incrementing value. The counter won't reset after edits or if
           there are errors.
         </p>
-        <p>Current value: {count}</p>
+        <p className="font-semibold text-blue-600">Current value: {count}</p>
       </div>
-      <hr className={styles.hr} />
-      <div>
-        <p>Component with state.</p>
+      <hr className="border-none border-b border-gray-200 my-12" />
+      <div className="mb-8">
+        <p className="mb-4 text-gray-700">Component with state.</p>
         <ClickCount />
       </div>
-      <hr className={styles.hr} />
-      <div>
-        <p>
+      <hr className="border-none border-b border-gray-200 my-12" />
+      <div className="mb-8">
+        <p className="mb-4 text-gray-700">
           The button below will throw 2 errors. You'll see the error overlay to
           let you know about the errors but it won't break the page or reset
           your state.
@@ -63,7 +62,7 @@ function Home() {
           Throw an Error
         </Button>
       </div>
-      <hr className={styles.hr} />
+      <hr className="border-none border-b border-gray-200 my-12" />
     </main>
   )
 }
